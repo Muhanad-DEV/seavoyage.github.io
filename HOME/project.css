@@ -1,0 +1,164 @@
+
+
+body{
+
+    background-color: rgba(1,32,46,255);
+}
+
+/*  1  */
+.play-on-gif {
+    width: 7.5vw;
+    height: 13vh;
+    background-image: url(home.svg);
+    background-size: cover;
+    cursor: pointer;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px -5px #ccc;
+}
+
+.play-on-gif:hover {
+    background-image: url(home1.gif);
+}
+
+
+
+
+
+/* 2 */
+.play-on-gif2 {
+    width: 7.5vw;
+    height: 13vh;
+    background-image: url(about1.svg);
+    background-size: cover;
+    cursor: pointer;
+
+    border-radius: 10px;
+    box-shadow: 0 10px 20px -5px #ccc;
+}
+
+.play-on-gif2:hover {
+    background-image: url(about.gif);
+}
+
+
+
+
+/* 3 */
+.play-on-gif3 {
+    width: 7.5vw;
+    height: 13vh;
+    background-image: url(canoe-1\ \(dragged\)\ \(1\).png);
+    background-size: cover;
+    cursor: pointer;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px -5px #ccc;
+}
+
+.play-on-gif3:hover {
+    background-image: url(output-onlinegiftools.gif);
+}
+
+
+
+/* 4 */
+.play-on-gif4 {
+    width: 7.5vw;
+    height: 13vh;
+    background-image: url(boat.svg);
+    background-size: cover;
+    cursor: pointer;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px -5px #ccc;
+}
+
+.play-on-gif4:hover {
+    background-image: url(boat.gif);
+}
+           
+
+
+/* 5 */
+.play-on-gif5 {
+    width: 7.5vw;
+    height: 13vh;
+    background-image: url(con.svg);
+    background-size: cover;
+    cursor: pointer;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px -5px #ccc;
+}
+
+.play-on-gif5:hover {
+    background-image: url(con.gif);
+}
+pre{
+    border: 2px;
+    font-family :monospace;
+    color :rgb(112, 185, 228);
+    
+}
+
+
+*{
+
+    color :rgb(112, 185, 228);
+    font-size: 16px;
+}
+
+
+
+
+
+
+footer{
+    background-color: rgba(1,32,46,255) ;
+    padding: 70px 0;
+    font-family: "Montserrat", sans-serif;
+}
+.container{
+    max-width: 1170px;
+     margin: auto;
+}
+.row{
+     display: flex;
+     flex-wrap: wrap;
+}
+ul{
+    list-style: none;
+}
+.col{
+    width: 50%;
+     text-transform: capitalize;
+     padding: 0 15px;
+}
+.col h3{
+    font-size: 18px;
+    color: rgb(112, 185, 228);
+    text-transform: capitalize;
+    margin-bottom: 10px;
+    font-weight: 500;
+    position: relative; 
+}
+
+
+
+
+
+
+
+p.welcome {
+    text-align: left;
+    margin-right: 100px;
+    float:none; 
+    color :rgb(112, 185, 228);
+   
+}
+
+pre{
+    font-size: 19px ;
+}
+
+
+
+
+
