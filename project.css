@@ -7,8 +7,11 @@ body{
 
 /*  1  */
 .play-on-gif {
-    width: 7.5vw;
-    height: 13vh;
+    padding: 60px;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    
     background-image: url(home.svg);
     background-size: cover;
     cursor: pointer;
@@ -26,8 +29,10 @@ body{
 
 /* 2 */
 .play-on-gif2 {
-    width: 7.5vw;
-    height: 13vh;
+    padding: 60px;
+    background-position: center;
+    background-repeat: no-repeat;
+    
     background-image: url(about1.svg);
     background-size: cover;
     cursor: pointer;
@@ -45,8 +50,10 @@ body{
 
 /* 3 */
 .play-on-gif3 {
-    width: 7.5vw;
-    height: 13vh;
+    padding: 60px;
+    background-position: center;
+    background-repeat: no-repeat;
+
     background-image: url(canoe-1\ \(dragged\)\ \(1\).png);
     background-size: cover;
     cursor: pointer;
@@ -62,8 +69,11 @@ body{
 
 /* 4 */
 .play-on-gif4 {
-    width: 7.5vw;
-    height: 13vh;
+   
+    padding: 60px;
+    background-position: center;
+    background-repeat: no-repeat;
+
     background-image: url(boat.svg);
     background-size: cover;
     cursor: pointer;
@@ -79,8 +89,10 @@ body{
 
 /* 5 */
 .play-on-gif5 {
-    width: 7.5vw;
-    height: 13vh;
+    padding: 60px;
+    background-position: center;
+    background-repeat: no-repeat;
+    
     background-image: url(con.svg);
     background-size: cover;
     cursor: pointer;
@@ -162,3 +174,15 @@ pre{
 
 
 
+
+
+
+
+.navbar-nav {
+    align-items: center;
+    width: 100%;
+}
+
+.nav-item {
+    text-align: center;
+}
