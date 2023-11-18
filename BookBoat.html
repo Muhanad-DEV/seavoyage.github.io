@@ -101,8 +101,6 @@
         <meta name="description" content="seavoyage">
         <meta name="keywords" content="seavoyage,boats,rent,trip,adventure,fun,summer,sea">
         <meta name="author" content="Muhannad">
-        <meta name="viewport" content="width=device-width,
-                                initial-scale=1.0">
         </head>
 <body>
 
@@ -110,7 +108,7 @@
         <nav class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-center">
           <ul class="navbar-nav justify-content-center">
               <li class="nav-item active">
-                  <a class="nav-link" style="color: aliceblue; text-align: center; " href="index.html">
+                  <a class="nav-link" style="color: aliceblue; text-align: center; " href="Index.html">
                   
                       <div class="play-on-gif"></div>
 
@@ -172,7 +170,7 @@
 
 
       <td>
-        <div class="product-container">
+        <div class="product-container"  >
           <img src="Boat2.jpg" alt="Boat 2">
           <div class="product-name">Boat 2</div>
           <div class="product-description">Spacious cruise boat perfect for family vacations and leisurely trips.</div>
@@ -235,30 +233,54 @@
 
 
 
-  <div class="rental-form-container">
-    <div class="rental-form">
-      <form action="#" method="post">
-        <label for="boat-name" class="form-label">Boat Name:</label>
-        <input type="text" id="boat-name" name="boat-name" class="form-input" readonly>
+  
+        <div class="rental-form-container">
+          <div class="rental-form">
+            <form action="#" method="post">
 
-        <label for="pickup-date" class="form-label">Pickup Date:</label>
-        <input type="date" id="pickup-date" name="pickup-date" class="form-input" required>
-
-        <label for="return-date" class="form-label">Return Date:</label>
-        <input type="date" id="return-date" name="return-date" class="form-input" required>
-
-        <label for="num-days" class="form-label">Number of Days:</label>
-        <select id="num-days" name="num-days" class="form-input" required>
-          <option value="1">1 day</option>
-          <option value="2">2 days</option>
-          <option value="3">3 days</option>
-        </select>
-
-        <button type="submit" class="form-submit">Submit</button>
-      </form>
-    </div>
-  </div>
-
+              
+                      <label for="boat-name" class="form-label">Boat Name:</label>
+                      <input type="text" id="boat-name" name="boat-name" class="form-input" readonly>
+                
+                      <label for="pickup-date" class="form-label">Pickup Date:</label>
+                      <input type="date" id="pickup-date" name="pickup-date" class="form-input" required>
+                
+                      <label for="return-date" class="form-label">Return Date:</label>
+                      <input type="date" id="return-date" name="return-date" class="form-input" required>
+                
+                      <label for="num-days" class="form-label">Number of Days:</label>
+                      <select id="num-days" name="num-days" class="form-input" required>
+                        <option value="1">1 day</option>
+                        <option value="2">2 days</option>
+                        <option value="3">3 days</option>
+                      </select>
+  
+                  <label for="extras" class="form-label">Extras:</label>
+                  <input type="checkbox" id="life-jacket" name="extras[]" value="life-jacket">
+                  <label for="life-jacket">Life Jacket</label>
+                  <input type="checkbox" id="fishing-rod" name="extras[]" value="fishing-rod">
+                  <label for="fishing-rod">Fishing Rod</label>
+            
+                  <label class="form-label">Preferred Fuel Type:</label>
+                  <input type="radio" id="fuel-petrol" name="fuel-type" value="petrol">
+                  <label for="fuel-petrol">Petrol</label>
+                  <input type="radio" id="fuel-diesel" name="fuel-type" value="diesel">
+                  <label for="fuel-diesel">Diesel</label>
+            
+                  <label for="special-requests" class="form-label">Special Requests:</label>
+                  <textarea id="special-requests" name="special-requests" class="form-input" rows="4" placeholder="Enter any special requests"></textarea>
+            
+                  <label for="preference-list" class="form-label">Entertainment Options:</label>
+                  <ul style="list-style-type: disc; text-align: center;">
+                    <li><input type="checkbox" id="preference1" name="preferences[]" value="preference1"><label for="preference1">TV/DVD Player</label></li>
+                    <li><input type="checkbox" id="preference2" name="preferences[]" value="preference2"><label for="preference2">Stereo System</label></li>
+                    <li><input type="checkbox" id="preference3" name="preferences[]" value="preference3"><label for="preference3">Wi-Fi</label></li>
+                  </ul>
+            
+                  <button type="submit" class="form-submit">Submit</button>
+                </form>
+              </div>
+            </div>
 
 
 </body>
