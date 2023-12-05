@@ -16,8 +16,7 @@
         <meta name="description" content="seavoyage">
         <meta name="keywords" content="seavoyage,boats,rent,trip,adventure,fun,summer,sea">
         <meta name="author" content="Muhannad">
-        <meta name="viewport" content="width=device-width,
-                                initial-scale=1.0">
+        
 
     <style>
         body {
@@ -75,7 +74,9 @@
             <li class="nav-item active">
                 <a class="nav-link" style="color: aliceblue; text-align: center; " href="index.html">
                 
-                    <div class="play-on-gif"></div>
+                   
+                    <div class="play-on-gif img-container"></div>
+                    
 
                     <pre style="text-align: center; margin: 0; font-size: 19px ">   HOME   </pre>
                 
@@ -85,21 +86,21 @@
             
             <li class="nav-item">
                 <a class="nav-link" style="color: aliceblue;" href="BookATrip.html">
-                    <div class="play-on-gif3"> </div>
+                    <div class="play-on-gif3 img-container"> </div>
                     <pre style="text-align: center; margin: 0; ">  TRIPS  </pre>
 
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" style="color: aliceblue;" href="BookBoat.html">
-                    <div class="play-on-gif4"> </div>    
+                    <div class="play-on-gif4 img-container"> </div>    
                     <pre style="text-align: center; margin: 0; ">  BOATS  </pre>
 
                 </a>
             </li>
             <li class="nav-item ml-auto">
                 <a class="nav-link" style="color: aliceblue;" href="Aboutus.html"> 
-                    <div class="play-on-gif5"> </div>
+                    <div class="play-on-gif5 img-container"> </div>
                     <pre style="text-align: center; margin: 0; ">ABOUT US</pre>
 
                 
@@ -109,91 +110,192 @@
 
             <li class="nav-item">
                 <a class="nav-link" style="color: aliceblue;" href="contactUs.html">
-                    <div class="play-on-gif2"> </div>
+                    <div class="play-on-gif2 img-container"> </div>
                     <pre style="text-align: center; margin: 0; ">CONTACT US</pre>
 
                 </a>
             </li>
-            
+
 
         </ul>
         
     </nav>
 
     <div class="img-container" 
-        style="align-content: center; margin-bottom: 60px; background-color: rgba(1,32,46,255);  background-image:url(SeaVoage2.png); padding: 200px; background-position: center;background-repeat: no-repeat; background-size: 450px;">
-  
+    style="align-content: center; margin-bottom: 60px; background-color: rgba(1,32,46,255);  background-image:url(SeaVoage2.png); padding: 200px; background-position: center;background-repeat: no-repeat; background-size: 450px;">
 
-    </div>
 
-    
+</div>
+
     <div class="container">
 
         <h1 class="mt-4" style="text-align: center;">Book Your Trip</h1>
 
-        <!-- Trip Information Table -->
-        <table class="table table-bordered table-hover">
-            <thead class="thead-dark">
-                <tr>
-                    <th>Trip Type</th>
-                    <th>Date</th>
-                    <th>Time</th>
-                    <th>Duration</th>
-                    <th>Cost per Person</th>
-                    <th>Available Seats</th>
-                    <th>Additional Information</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Dolphin Watching</td>
-                    <td>2023-11-20</td>
-                    <td>10:00 AM</td>
-                    <td>2 hours</td>
-                    <td>$50</td>
-                    <td>10</td>
-                    <td>Enjoy a scenic boat ride while watching playful dolphins in their natural habitat.</td>
-                </tr>
-                <tr>
-                    <td>Snorkeling Adventure</td>
-                    <td>2023-11-22</td>
-                    <td>02:00 PM</td>
-                    <td>3 hours</td>
-                    <td>$75</td>
-                    <td>8</td>
-                    <td>Dive into crystal-clear waters and explore the vibrant underwater world with our snorkeling experience.</td>
-                </tr>
-                <tr>
-                    <td>Sailing Excursion</td>
-                    <td>2023-11-25</td>
-                    <td>12:00 PM</td>
-                    <td>4 hours</td>
-                    <td>$100</td>
-                    <td>12</td>
-                    <td>Relax and unwind on a sailing adventure, experiencing the beauty of the open sea and coastal views.</td>
-                </tr>
-                <!-- Add more trips as needed -->
-                <tr>
-                    <td>Kayaking Adventure</td>
-                    <td>2023-11-28</td>
-                    <td>09:30 AM</td>
-                    <td>2.5 hours</td>
-                    <td>$60</td>
-                    <td>6</td>
-                    <td>Explore the waters with our exciting kayaking adventure.</td>
-                </tr>
-                <tr>
-                    <td>Island Hopping</td>
-                    <td>2023-12-02</td>
-                    <td>11:00 AM</td>
-                    <td>5 hours</td>
-                    <td>$120</td>
-                    <td>15</td>
-                    <td>Visit multiple islands and enjoy a day of exploration and relaxation.</td>
-                </tr>
-            </tbody>
-        </table>
+         <!-- Empty table with header rows -->
+<table id="tripTable" class="table table-bordered table-hover">
+    <thead class="thead-dark">
+        <tr>
+            <th>Trip Type</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Duration</th>
+            <th>Cost per Person</th>
+            <th>Available Seats</th>
+            <th>Additional Information</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Content will be dynamically added here -->
+    </tbody>
+</table>
 
+    <script>
+    // Function to search for trips
+    function searchTrips() {
+    var searchTripName = document.getElementById("searchTripName").value.toLowerCase();
+
+    // Filter tripsArray based on the search criteria
+    var searchResults = tripsArray.filter(function (trip) {
+        return trip.tripType.toLowerCase().includes(searchTripName);
+    });
+
+    // Check if the search results table already exists
+    var existingTable = document.getElementById("searchResultsTable");
+    
+    // If the table already exists, remove it before creating a new one
+    if (existingTable) {
+        existingTable.remove();
+    }
+
+    // Create and display search results table
+    var searchResultsTable = document.createElement("table");
+    searchResultsTable.id = "searchResultsTable"; // Set a unique ID for the table
+    searchResultsTable.className = "table table-bordered table-hover";
+    var thead = searchResultsTable.createTHead();
+    var tbody = searchResultsTable.createTBody();
+
+    // Create header row
+    var headerRow = thead.insertRow();
+    for (var key in searchResults[0]) {
+        var th = document.createElement("th");
+        th.textContent = key.charAt(0).toUpperCase() + key.slice(1); // Capitalize the first letter
+        headerRow.appendChild(th);
+    }
+
+    // Create data row
+    var dataRow = tbody.insertRow();
+    for (var key in searchResults[0]) {
+        var td = dataRow.insertCell();
+        td.textContent = searchResults[0][key];
+    }
+
+    // Append the new table to the container
+    var container = document.querySelector(".container");
+    container.appendChild(searchResultsTable);
+}
+
+        // Function to add a new trip
+        function addNewTrip() {
+            var newTripType = document.getElementById("newTripType").value;
+            var newTripDate = document.getElementById("newTripDate").value;
+            var newTripTime = document.getElementById("newTripTime").value;
+            var newTripDuration = document.getElementById("newTripDuration").value;
+            var newTripCost = document.getElementById("newTripCost").value;
+
+            // Default values (modify as needed)
+            var defaultAvailableSeats = 20;
+            var defaultAdditionalInfo = "No additional information available.";
+
+            // Create a new TripInfo object with user input
+            var newTrip = new TripInfo(newTripType, newTripDate, newTripTime, newTripDuration, newTripCost, defaultAvailableSeats, defaultAdditionalInfo);
+
+            // Add the new trip to the tripsArray
+            tripsArray.push(newTrip);
+
+            // Call displayTrips() to update the table
+            displayTrips();
+        }
+        // Define an object type for trip information
+        function TripInfo(tripType, date, time, duration, cost, availableSeats, additionalInfo) {
+            this.tripType = tripType;
+            this.date = date;
+            this.time = time;
+            this.duration = duration;
+            this.cost = cost;
+            this.availableSeats = availableSeats;
+            this.additionalInfo = additionalInfo;
+        }
+
+        // Initialize an array to store trip information
+        var tripsArray = [
+            new TripInfo("Dolphin Watching", "2023-11-20", "10:00 AM", "2 hours", "$50", 10, "Enjoy a scenic boat ride while watching playful dolphins in their natural habitat"),
+            new TripInfo("Snorkeling Adventure", "2023-11-22", "02:00 PM", "3 hours", "$75", 8, "Dive into crystal-clear waters and explore the vibrant underwater world with our snorkeling experience"),
+            new TripInfo("Sailing Excursion", "2023-11-25", "12:00 PM", "4 hours", "$100", 12, "Relax and unwind on a sailing adventure, experiencing the beauty of the open sea and coastal views"),
+            new TripInfo("Kayaking Adventure", "2023-11-28", "09:30 AM", "2.5 hours", "$60", 6, "Explore the waters with our exciting kayaking adventure"),
+            new TripInfo("Island Hopping", "2023-12-02", "11:00 AM", "5 hours", "$120", 15, "Visit multiple islands and enjoy a day of exploration and relaxation")
+        ];
+
+        // Function to dynamically display information in the table
+        function displayTrips() {
+            var tableBody = document.getElementById("tripTable").getElementsByTagName("tbody")[0];
+            tableBody.innerHTML = ""; // Clear existing rows
+
+            for (var i = 0; i < tripsArray.length; i++) {
+                var trip = tripsArray[i];
+                var row = tableBody.insertRow(i);
+
+                var cellType = row.insertCell(0);
+                var cellDate = row.insertCell(1);
+                var cellTime = row.insertCell(2);
+                var cellDuration = row.insertCell(3);
+                var cellCost = row.insertCell(4);
+                var cellSeats = row.insertCell(5);
+                var cellInfo = row.insertCell(6);
+
+                cellType.innerHTML = trip.tripType;
+                cellDate.innerHTML = trip.date; // Use the correct property name
+                cellTime.innerHTML = trip.time; // Use the correct property name
+                cellDuration.innerHTML = trip.duration; // Use the correct property name
+                cellCost.innerHTML = trip.cost; // Use the correct property name
+                cellSeats.innerHTML = trip.availableSeats;
+                cellInfo.innerHTML = trip.additionalInfo;
+            }
+        }
+    </script>
+    <input type="button" onclick="displayTrips();" value="dispaly trips">
+    <!-- Add Trip Form -->
+    <form id="addTripForm">
+        <div class="form-group">
+            <label for="newTripType">Trip Type:</label>
+            <input type="text" class="form-control" id="newTripType" name="newTripType" required>
+        </div>
+        <div class="form-group">
+            <label for="newTripDate">Date:</label>
+            <input type="text" class="form-control" id="newTripDate" name="newTripDate" placeholder="YYYY-MM-DD" required>
+        </div>
+        <div class="form-group">
+            <label for="newTripTime">Time:</label>
+            <input type="text" class="form-control" id="newTripTime" name="newTripTime" required>
+        </div>
+        <div class="form-group">
+            <label for="newTripDuration">Duration:</label>
+            <input type="text" class="form-control" id="newTripDuration" name="newTripDuration" required>
+        </div>
+        <div class="form-group">
+            <label for="newTripCost">Cost per Person:</label>
+            <input type="text" class="form-control" id="newTripCost" name="newTripCost" required>
+        </div>
+        <button type="button" class="btn btn-success" onclick="addNewTrip()">Add Trip</button>
+    </form>
+
+<!-- Search Trip Form -->
+<form id="searchForm">
+    <div class="form-group">
+        <label for="searchTripName">Search by Trip Type:</label>
+        <input type="text" class="form-control" id="searchTripName" name="searchTripName" required>
+    </div>
+    <button type="button" class="btn btn-primary" onclick="searchTrips()">Search</button>
+</form>
         <!-- Booking Form -->
         <form action="/book-trip" method="post">
                 <div class="form-group">
@@ -232,13 +334,12 @@
 
 
 
-
-<footer style="margin-top: 300px;">
+<footer class="rounded" style="margin-top: 300px;">
     <br>
     <p>
 
     </p>
-    <div class="container">
+    <div class="container rounded">
         <div class="row">
             <div class="col">
                 <h3>Website pages</h3>
