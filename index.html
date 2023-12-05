@@ -8,7 +8,7 @@
             <style>
 
                 body{
-
+                    
                     background-color: rgba(1,32,46,255);
                    
                 }
@@ -43,17 +43,44 @@
 
                     font-size: 30px;
                     }
+                
+                
 
 
                     .search-form {
-            max-width: 400px;
-            margin: 150px auto;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            background-color: azure;
+                    max-width: 400px;
+                    margin: 150px auto;
+                    padding: 20px;
+                    border-radius: 10px;
+                    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                    background-color: azure;
                     }
+                    #textBanner {
+                    position: fixed;
+                    bottom: 0;
+                    left: 0;
+                    
+                    background-color: rgb(112, 185, 228);
+                    color: #fff;
+                    padding: 10px;
+                    white-space: nowrap;
+                    font-size: 16px;
+                    text-align: center;
+                    z-index: 999;
+                    }
+                    .gallery-container {
+                    max-width: 600px;
+                    margin: 20px auto;
+                    overflow: hidden;
+                    position: relative;
+                }
+
+                .gallery-image {
+                    width: 100%;
+                    display: none;
+                }
                 
+                  
                
             
             
@@ -79,8 +106,7 @@
             <meta name="description" content="seavoyage">
             <meta name="keywords" content="seavoyage,boats,rent,trip,adventure,fun,summer,sea">
             <meta name="author" content="Muhannad">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+            
                
         </head>
     <body>
@@ -92,7 +118,7 @@
         <nav class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-center">
             <ul class="navbar-nav justify-content-center">
                 <li class="nav-item active">
-                    <a class="nav-link" style="color: aliceblue; text-align: center; " href="Index.html">
+                    <a class="nav-link" style="color: aliceblue; text-align: center; " href="index.html">
                     
                        
                         <div class="play-on-gif img-container"></div>
@@ -135,6 +161,7 @@
     
                     </a>
                 </li>
+                
 
 
             </ul>
@@ -207,7 +234,7 @@
 
 
 
-
+            
 
             <div class="container" style="padding: 120px;">
                 <div class="search-form"  >
@@ -220,7 +247,23 @@
                     </form>
                 </div>
             </div>
+            <div id="textBanner"></div>
+            <div id="photo-gallery">
+                <img src="photo1.jpg" alt="Photo 1">
+                <img src="photo2.jpg" alt="Photo 2">
+                <img src="photo3.jpg" alt="Photo 3">
+              </div>
+           
 
+
+
+              <div class="container rounded">
+                <ul>
+                    <li><a href="Questionnaire.html">Questionnaire Page</a></li>
+                    <li><a href="BookBoat.html">Calculate Page</a></li>
+                    <li><a href="funPage.html">Fun Page</a></li>
+                </ul>
+            </div>
         </body>
 
 
@@ -265,6 +308,76 @@
 
 
 
+            <script>
+                // Function to update the banner text with the current date and time
+                function updateBanner() {
+                    var currentDate = new Date();
+                    var currentDateString = currentDate.toDateString();
+                    var currentTimeString = currentDate.toLocaleTimeString();
+            
+                    var companyName = "Sea voyage"; // Replace with your company name
+                    var welcomeMessage = "Welcome to the " + companyName + " website! Today is " + currentDateString + ", and the time is " + currentTimeString;
+            
+                    document.getElementById("textBanner").textContent = welcomeMessage;
+                }
+            
+                // Function to animate the text banner
+                function animateBanner() {
+                    var banner = document.getElementById("textBanner");
+                    var position = 0;
+                    var direction = 1; // 1 for moving right, -1 for moving left
+            
+                    function move() {
+                        position += direction;
+                        banner.style.left = position + "px";
+            
+                        // If the banner reaches the right edge, change direction to move left
+                        if (position + banner.clientWidth >= window.innerWidth) {
+                            direction = -1;
+                        }
+            
+                        // If the banner reaches the left edge, change direction to move right
+                        if (position <= 0) {
+                            direction = 1;
+                        }
+            
+                        requestAnimationFrame(move);
+                    }
+            
+                    move();
+                }
+            
+                // Call functions to initialize and start the animation
+                updateBanner();
+                animateBanner();
+            
+                // Update the banner every 10 seconds to show the current date and time
+                setInterval(updateBanner, 10000);
 
+                // Function to initialize the photo gallery
+                function initializeGallery() {
+                    var gallery = document.getElementById('photo-gallery');
+                    var photos = gallery.getElementsByTagName('img');
+                    var currentPhotoIndex = 0;
+                    var displayTime = 3000; // 3 seconds per photo
+
+                    function showNextPhoto() {
+                    photos[currentPhotoIndex].style.display = 'none';
+                    currentPhotoIndex = (currentPhotoIndex + 1) % photos.length;
+                    photos[currentPhotoIndex].style.display = 'block';
+                    setTimeout(showNextPhoto, displayTime);
+                    }
+
+                    // Show the first photo and start the rotation
+                    photos[currentPhotoIndex].style.display = 'block';
+                    setTimeout(showNextPhoto, displayTime);
+                }
+
+                // Call the functions once the DOM is loaded
+                document.addEventListener('DOMContentLoaded', function() {
+                    updateBanner();
+                    initializeGallery();
+                });
+            </script>
 
     </html>
