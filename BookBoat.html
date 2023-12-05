@@ -7,6 +7,8 @@
 
   <link rel="stylesheet" href="project.css" >
 
+  <script src="calculationPage.js" ></script>
+
   <title>Online Shopping</title>
   <style>
     table {
@@ -108,7 +110,7 @@
         <nav class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-center">
           <ul class="navbar-nav justify-content-center">
               <li class="nav-item active">
-                  <a class="nav-link" style="color: aliceblue; text-align: center; " href="Index.html">
+                  <a class="nav-link" style="color: aliceblue; text-align: center; " href="index.html">
                   
                       <div class="play-on-gif"></div>
 
@@ -156,27 +158,12 @@
       </nav>
 
 
+      <div class="img-container" 
+      style="align-content: center; margin-bottom: 60px; background-color: rgba(1,32,46,255);  background-image:url(SeaVoage2.png); padding: 200px; background-position: center;background-repeat: no-repeat; background-size: 450px;">
 
 
+  </div>
 
-
-
-  <div class="img-container" 
-        style="align-content: center; margin-bottom: 60px; background-color: rgba(1,32,46,255);  background-image:url(SeaVoage2.png); padding: 200px; background-position: center;background-repeat: no-repeat; background-size: 450px;">
-  
-
-    </div>
-
-
-
-  
-
-
-
-
-
-
-  
 
   <table>
     <tr>
@@ -255,58 +242,152 @@
 
 
 
+  <div class="rental-form-container">
+    <div class="rental-form">
+      <form onsubmit="event.preventDefault(); calculatePrice();">
+        <!-- Form elements -->
+        <!-- Form elements -->
+              <label for="boat-name" class="form-label">Boat Name:</label>
+              <select id="boat-name" name="boat-name" class="form-select" required onchange="updatePrice()">
+                <option value="">Select a boat</option>
+                <option value="10000">Boat 1</option>
+                <option value="15000">Boat 2</option>
+                <option value="20000">Boat 3</option>
+                <option value="8000">Boat 4</option>
+                <option value="2000">Boat 5</option>
+                <option value="5000">Boat 6</option>
+              </select>
   
-        <div class="rental-form-container">
-          <div class="rental-form">
-            <form action="#" method="post">
+              <label for="pickup-date" class="form-label">Pickup Date:</label>
+              <input type="date" id="pickup-date" name="pickup-date" class="form-input" required>
+  
+              <label for="return-date" class="form-label">Return Date:</label>
+              <input type="date" id="return-date" name="return-date" class="form-input" required>
+  
+              <label for="num-days" class="form-label">Number of Days:</label>
+                <span class="discount-info">Discount: 10% for 2 days, 30% for 3 days</span>
+                <select id="num-days" name="num-days" class="form-input" required onchange="updateReturnDate()">
+                  <option value="1">1 day</option>
+                  <option value="2">2 days</option>
+                  <option value="3">3 days</option>
+                </select>
+  
+              <label for="extras" class="form-label">Extras:</label>
+              <input type="checkbox" id="life-jacket" name="extras[]" value="life-jacket">
+              <label for="life-jacket">Life Jacket</label>
+              <input type="checkbox" id="fishing-rod" name="extras[]" value="fishing-rod">
+              <label for="fishing-rod">Fishing Rod</label>
+  
+              <label class="form-label">Preferred Fuel Type:</label>
+              <input type="radio" id="fuel-petrol" name="fuel-type" value="petrol">
+              <label for="fuel-petrol">Petrol</label>
+              <input type="radio" id="fuel-diesel" name="fuel-type" value="diesel">
+              <label for="fuel-diesel">Diesel</label>
+  
+              <label for="special-requests" class="form-label">Special Requests:</label>
+              <textarea id="special-requests" name="special-requests" class="form-input" rows="4" placeholder="Enter any special requests"></textarea>
+  
+              <label for="preference-list" class="form-label">Entertainment Options:</label>
+              <ul style="list-style-type: disc; text-align: center;">
+                <li><input type="checkbox" id="preference1" name="preferences[]" value="preference1"><label for="preference1">TV/DVD Player</label></li>
+                <li><input type="checkbox" id="preference2" name="preferences[]" value="preference2"><label for="preference2">Stereo System</label></li>
+                <li><input type="checkbox" id="preference3" name="preferences[]" value="preference3"><label for="preference3">Wi-Fi</label></li>
+              </ul>
+  
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  
+    <div id="bill-container" style="display: none;">
+      <h3>Bill</h3>
+      <div id="boat-info">
+        <p id="boat-name-info"></p>
+        <p id="boat-price-info"></p>
+      </div>
+      <div id="total-price">
+        <label for="final-price">Total Price:</label>
+        <p id="final-price"></p>
+      </div>
+    </div>
+  </div>
 
-              
-                      <label for="boat-name" class="form-label">Boat Name:</label>
-                      <input type="text" id="boat-name" name="boat-name" class="form-input" readonly>
-                
-                      <label for="pickup-date" class="form-label">Pickup Date:</label>
-                      <input type="date" id="pickup-date" name="pickup-date" class="form-input" required>
-                
-                      <label for="return-date" class="form-label">Return Date:</label>
-                      <input type="date" id="return-date" name="return-date" class="form-input" required>
-                
-                      <label for="num-days" class="form-label">Number of Days:</label>
-                      <select id="num-days" name="num-days" class="form-input" required>
-                        <option value="1">1 day</option>
-                        <option value="2">2 days</option>
-                        <option value="3">3 days</option>
-                      </select>
-  
-                  <label for="extras" class="form-label">Extras:</label>
-                  <input type="checkbox" id="life-jacket" name="extras[]" value="life-jacket">
-                  <label for="life-jacket">Life Jacket</label>
-                  <input type="checkbox" id="fishing-rod" name="extras[]" value="fishing-rod">
-                  <label for="fishing-rod">Fishing Rod</label>
-            
-                  <label class="form-label">Preferred Fuel Type:</label>
-                  <input type="radio" id="fuel-petrol" name="fuel-type" value="petrol">
-                  <label for="fuel-petrol">Petrol</label>
-                  <input type="radio" id="fuel-diesel" name="fuel-type" value="diesel">
-                  <label for="fuel-diesel">Diesel</label>
-            
-                  <label for="special-requests" class="form-label">Special Requests:</label>
-                  <textarea id="special-requests" name="special-requests" class="form-input" rows="4" placeholder="Enter any special requests"></textarea>
-            
-                  <label for="preference-list" class="form-label">Entertainment Options:</label>
-                  <ul style="list-style-type: disc; text-align: center;">
-                    <li><input type="checkbox" id="preference1" name="preferences[]" value="preference1"><label for="preference1">TV/DVD Player</label></li>
-                    <li><input type="checkbox" id="preference2" name="preferences[]" value="preference2"><label for="preference2">Stereo System</label></li>
-                    <li><input type="checkbox" id="preference3" name="preferences[]" value="preference3"><label for="preference3">Wi-Fi</label></li>
-                  </ul>
-            
-                  <button type="submit" class="form-submit">Submit</button>
-                </form>
-              </div>
-            </div>
+
+
 
 
 </body>
 
+<script>
+       function updateReturnDate() {
+          // Get the number of days and return date input elements
+          var numDaysSelect = document.getElementById("num-days");
+          var returnDateInput = document.getElementById("return-date");
+          
+          // Parse the number of days and pickup date
+          var numDays = parseInt(numDaysSelect.value);
+          var pickupDate = new Date(document.getElementById("pickup-date").value);
+          
+          // Calculate the return date by adding the number of days to the pickup date
+          var returnDate = new Date(pickupDate);
+          returnDate.setDate(pickupDate.getDate() + numDays);
+          
+          // Set the return date input value and maximum date
+          returnDateInput.value = returnDate.toISOString().split("T")[0];
+          returnDateInput.max = returnDate.toISOString().split("T")[0];
+  }
+  
+  function updatePrice() {
+          // Get the boat select and price input elements
+          var boatSelect = document.getElementById("boat-name");
+          var priceInput = document.getElementById("price");
+          var selectedOption = boatSelect.options[boatSelect.selectedIndex];
+          var price = parseInt(selectedOption.value);
+        
+          // Set the price input value with two decimal places
+          priceInput.value = price.toFixed(2);
+        }
+  
+     function calculatePrice() {
+        // Get the selected boat name and price
+            var boatSelect = document.getElementById("boat-name");
+            var selectedBoatName = boatSelect.options[boatSelect.selectedIndex].text;
+            var selectedBoatPrice = parseFloat(boatSelect.value);
+      
+    // Calculate the total price based on the selected boat and number of days
+        var numDaysSelect = document.getElementById("num-days");
+        var numDays = parseInt(numDaysSelect.value);
+        var totalPrice = selectedBoatPrice * numDays;
+      
+        // Apply discount based on the number of days
+            var discount = 0;
+            if (numDays === 2) {
+              discount = totalPrice * 0.1; // 10% discount
+            } else if (numDays === 3) {
+              discount = totalPrice * 0.3; // 30% discount
+            }
+  
+    var totalPriceAfterDiscount = totalPrice - discount;
+  
+    // Display the bill information
+    var boatNameInfo = document.getElementById("boat-name-info");
+    boatNameInfo.textContent = "Boat Name: " + selectedBoatName;
+  
+    var boatPriceInfo = document.getElementById("boat-price-info");
+    boatPriceInfo.textContent = "Boat Price: $" + selectedBoatPrice.toLocaleString();
+  
+    var finalPrice = document.getElementById("final-price");
+    finalPrice.textContent = "Total Price: $" + totalPriceAfterDiscount.toLocaleString();
+  
+    // Show the bill container
+    var billContainer = document.getElementById("bill-container");
+    billContainer.style.display = "block";
+  }
+</script>
+  
+  
+  
+  
+  
 
 
 <footer style="margin-top: 300px;">
