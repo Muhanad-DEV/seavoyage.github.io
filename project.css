@@ -186,3 +186,33 @@ pre{
 .nav-item {
     text-align: center;
 }
+
+
+.header {
+    padding: 60px;
+    text-align: center;
+    background: #000000;
+    color :rgb(112, 185, 228);
+
+
+    font-size: 30px;
+    }
+
+#board{
+width: 360px;
+height: 360px;
+background-color: rgb(18, 55, 90);
+border:5px solid rgb(112, 185, 228) ;
+margin: 0 auto;
+display: flex;
+flex-wrap: wrap;
+
+}
+
+#board img{
+width: 118px;
+height: 118px;
+border:1px solid rgb(112, 185, 228) ;
+}
+
+
